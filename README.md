@@ -35,6 +35,43 @@ npm install
 npm run dev
 ```
 
+📁 Folder Structure
+geo-project/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── api/
+│   │   └── api.js              # Mock API / data fetching logic
+│   │
+│   ├── assets/
+│   │   ├── image1.png          # Dashboard screenshots
+│   │   ├── image2.png
+│   │   ├── image3.png
+│   │   ├── image4.png
+│   │   └── image5.png
+│   │
+│   ├── components/
+│   │   ├── MapView.jsx         # Leaflet map & marker rendering
+│   │   └── TableView.jsx       # Virtualized data table
+│   │
+│   ├── data/
+│   │   ├── data.js             # Project dataset
+│   │   └── mockData.js         # Mock paginated data source
+│   │
+│   ├── App.jsx                 # Root component & state orchestration
+│   ├── main.jsx                # React entry point
+│   ├── App.css                 # App-level styles
+│   └── index.css               # Global styles
+│
+├── .gitignore
+├── eslint.config.js
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+
 ## Screenshots
 ![Geo Data Dashboard - Completed Projects View](assets/image1.png)
 ![Geo Data Dashboard - Mixed Active and Completed Projects](assets/image2.png)

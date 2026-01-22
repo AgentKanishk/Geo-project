@@ -1,41 +1,11 @@
 # Geo Data Dashboard
 
-## Overview
-A high-performance React-based dashboard for visualizing spatial and tabular data with seamless map-table synchronization.
+A React-based geo data dashboard that displays large datasets efficiently using a virtualized table and an interactive map. The application supports synchronized interaction between table rows and map markers, along with client-side filtering and sorting.
 
-## Tech Stack
-- **React 18** with Vite
-- **Leaflet** for map visualization
-- **TanStack Virtual** for table virtualization
-- **Tailwind CSS** for styling
+---
 
-## Key Features
-- Real-time search and filtering
-- Bi-directional sync between map and table
-- Handles 5000+ rows smoothly
-- Professional dark-themed UI
+## 📂 Folder Structure
 
-## Design Decisions
-1. **Virtualization**: Used @tanstack/react-virtual to render only visible rows
-2. **State Management**: Local useState for simplicity (no Redux overhead)
-3. **Map Library**: Leaflet chosen for lightweight performance
-4. **Component Structure**: Separated concerns (MapView, TableView, App)
-
-## Performance Optimizations
-- Virtual scrolling (only 10-15 DOM nodes for 5000 rows)
-- useMemo for filtered data caching
-- Debounced search (if needed)
-
-## Time Spent
-Approximately 4-5 hours
-
-## Installation
-```bash
-npm install
-npm run dev
-```
-
-📁 Folder Structure
 geo-project/
 │
 ├── public/
@@ -43,27 +13,36 @@ geo-project/
 │
 ├── src/
 │   ├── api/
-│   │   └── api.js              # Mock API / data fetching logic
+│   │   └── api.js
+│   │   # Handles mock API calls & pagination logic
 │   │
 │   ├── assets/
-│   │   ├── image1.png          # Dashboard screenshots
+│   │   ├── image1.png
 │   │   ├── image2.png
 │   │   ├── image3.png
 │   │   ├── image4.png
 │   │   └── image5.png
+│   │   # Screenshots used in README
 │   │
 │   ├── components/
-│   │   ├── MapView.jsx         # Leaflet map & marker rendering
-│   │   └── TableView.jsx       # Virtualized data table
+│   │   ├── MapView.jsx
+│   │   │   # Leaflet map, markers & map interactions
+│   │   └── TableView.jsx
+│   │       # Virtualized data table with sorting & filtering
 │   │
 │   ├── data/
-│   │   ├── data.js             # Project dataset
-│   │   └── mockData.js         # Mock paginated data source
+│   │   ├── data.js
+│   │   └── mockData.js
+│   │   # Static & mock dataset
 │   │
-│   ├── App.jsx                 # Root component & state orchestration
-│   ├── main.jsx                # React entry point
-│   ├── App.css                 # App-level styles
-│   └── index.css               # Global styles
+│   ├── App.jsx
+│   │   # Central state management & map-table synchronization
+│   │
+│   ├── main.jsx
+│   │   # React entry point
+│   │
+│   ├── App.css
+│   └── index.css
 │
 ├── .gitignore
 ├── eslint.config.js
@@ -72,9 +51,64 @@ geo-project/
 ├── vite.config.js
 └── README.md
 
-## Screenshots
-![Geo Data Dashboard - Completed Projects View](assets/image1.png)
-![Geo Data Dashboard - Mixed Active and Completed Projects](assets/image2.png)
-![Geo Data Dashboard - Project 40 Selected](assets/image3.png)
-![Geo Data Dashboard - Completed Projects View](assets/image4.png)
-![Geo Data Dashboard - Active Projects View](assets/image5.png)
+---
+
+## 🧠 Design Decisions
+
+### 1. State Management
+- Used local state (`useState`) only
+- Redux was avoided to keep the codebase simple and easy to understand
+- Selection state is centralized in `App.jsx` to synchronize the table and map
+
+### 2. Performance Optimization
+- Implemented table virtualization using `@tanstack/react-virtual`
+- Only visible rows are rendered, enabling smooth handling of 5,000+ rows
+- Client-side sorting and filtering for faster UI response
+
+### 3. Component Decomposition
+- **MapView**: Handles map rendering, markers, and marker click events
+- **TableView**: Manages table rendering, sorting, filtering, and row selection
+- **App**: Acts as the orchestrator and shared state manager
+- Clear separation between UI components and data logic
+
+### 4. Map Integration
+- Leaflet was chosen due to:
+  - Lightweight footprint
+  - Easy marker customization
+  - Good performance with large datasets
+- Clicking a table row highlights the corresponding map marker
+- Clicking a map marker highlights the corresponding table row
+
+### 5. Styling & UI
+- Tailwind CSS used for fast and consistent styling
+- Dark-themed UI for a professional dashboard appearance
+- Responsive layout supporting different screen sizes
+
+---
+
+## 📸 Screenshots
+
+![Geo Data Dashboard – All Projects View](src/assets/image1.png)
+![Geo Data Dashboard – Active Projects View](src/assets/image2.png)
+![Geo Data Dashboard – Completed Projects View](src/assets/image3.png)
+![Geo Data Dashboard – Selected Project Highlight](src/assets/image4.png)
+![Geo Data Dashboard – Map & Table Synchronization](src/assets/image5.png)
+
+---
+
+## ⏱️ Time Spent
+
+Approximately **8–10 hours**, including:
+- UI layout and styling
+- Table virtualization
+- Map integration
+- Map and table synchronization
+- README documentation
+
+---
+
+## ✅ What This Project Demonstrates
+- Clean and scalable component architecture
+- Efficient handling of large datasets
+- Proper usage of React hooks and functional components
+- Real-world dashboard design patterns
